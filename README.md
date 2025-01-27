@@ -49,7 +49,7 @@ sudo apt install gedit
 sudo gedit ~/.bashrc
 ``` 
 ```bash
-# source /opt/ros/foxy/setup.bash 
+# source /opt/ros/humble/setup.bash 
 ```
 
 
@@ -65,7 +65,7 @@ colcon build --packages-select cyclonedds #Compile cyclone-dds package
 ### 3. Compile unitree_go and unitree_api packages
 After compiling cyclone-dds, ROS2 dependencies is required for compilation of the unitree_go and unitree_api packages. Therefore, before compiling, it is necessary to source the environment of ROS2.
 ```bash
-source /opt/ros/foxy/setup.bash # source ROS2 environment
+source /opt/ros/humble/setup.bash # source ROS2 environment
 colcon build # Compile all packages in the workspace
 ```
 
@@ -85,7 +85,7 @@ sudo gedit ~/unitree_ros2/setup.sh
 ```bash
 #!/bin/bash
 echo "Setup unitree ros2 environment"
-source /opt/ros/foxy/setup.bash
+source /opt/ros/humble/setup.bash
 source $HOME/unitree_ros2/cyclonedds_ws/install/setup.bash
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 export CYCLONEDDS_URI='<CycloneDDS><Domain><General><Interfaces>

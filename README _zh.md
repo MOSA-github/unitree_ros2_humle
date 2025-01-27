@@ -35,7 +35,7 @@ sudo apt install ros-foxy-rosidl-generator-dds-idl
 ### 2. 编译cyclone-dds
 由于 Unitree 机器人(sdk2 版本) 使用的是cyclonedds 0.10.2，因此需要先更改ROS2的dds实现。见：https://docs.ros.org/en/foxy/Concepts/About-Different-Middleware-Vendors.html
 
-编译cyclonedds前请确保在启动终端时**没有**自动source ros2相关的环境变量，否则会导致cyclonedds编译报错。如果安装ROS2时在~/.bashrc中添加了 " source /opt/ros/foxy/setup.bash "，需要修改 ~/.bashrc 文件将其删除：
+编译cyclonedds前请确保在启动终端时**没有**自动source ros2相关的环境变量，否则会导致cyclonedds编译报错。如果安装ROS2时在~/.bashrc中添加了 " source /opt/ros/humble/setup.bash "，需要修改 ~/.bashrc 文件将其删除：
 
 ```bash
 sudo apt install gedit
@@ -43,7 +43,7 @@ sudo gedit ~/.bashrc
 ``` 
 在弹出的窗口中，注释掉ros2相关的环境变量，例如：
 ```bash
-# source /opt/ros/foxy/setup.bash 
+# source /opt/ros/humble/setup.bash 
 ```
 在终端中执行以下操作编译cyclone-dds
 ```bash
@@ -61,7 +61,7 @@ colcon build --packages-select cyclonedds #编译cyclonedds
 编译好 cyclone-dds 后就需要 ros2 相关的依赖来完成 Unitree 功能包的编译，因此编译前需要先 source ROS2 的环境变量。
 
 ```bash
-source /opt/ros/foxy/setup.bash #source ROS2 环境变量
+source /opt/ros/humble/setup.bash #source ROS2 环境变量
 colcon build #编译工作空间下的所有功能包
 ```
 
@@ -85,7 +85,7 @@ bash 的内容如下：
 ```bash
 #!/bin/bash
 echo "Setup unitree ros2 environment"
-source /opt/ros/foxy/setup.bash
+source /opt/ros/humble/setup.bash
 source $HOME/unitree_ros2/cyclonedds_ws/install/setup.bash
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 export CYCLONEDDS_URI='<CycloneDDS><Domain><General><Interfaces>
